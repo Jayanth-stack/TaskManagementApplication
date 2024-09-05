@@ -151,6 +151,3 @@ The backend will be available on `http://localhost:8080`, and the frontend will 
 
 Feel free to fork this repository, make changes, and submit a pull request. All contributions are welcome!
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
