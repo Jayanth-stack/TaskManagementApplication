@@ -1,8 +1,8 @@
 package com.project.taskmanagement.repository;
 
-import com.project.taskmanagement.entity.Task;
+import com.project.taskmanagement.entity.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface TaskRepository extends MongoRepository<Task, String> {
+public interface RoleRepository extends MongoRepository<Role, String> {
 
 }
