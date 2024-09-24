@@ -1,10 +1,9 @@
 package com.project.taskmanagement.entity;
 
 
-import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.NaturalId;
+
+import jakarta.validation.constraints.NotNull;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -16,9 +15,8 @@ import java.util.ArrayList;
 
 @Document(collection = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    @Id
     private long id;
 
     private String name;

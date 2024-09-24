@@ -1,15 +1,15 @@
 package com.project.taskmanagement.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.processing.Generated;
 import java.time.LocalDateTime;
 
 @Document(collection = "task")
@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private long program;
     private String name;
@@ -38,7 +37,7 @@ public class Task {
     private LocalDateTime modifiedDate;
     private String status;
 
-    @Column(length = 65450, columnDefinition = "text")
+    @Field
     private String description;
 
     public long getId() {
