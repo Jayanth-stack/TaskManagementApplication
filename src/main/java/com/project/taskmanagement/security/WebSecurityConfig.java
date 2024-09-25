@@ -12,12 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig {
 
-    final String clientUrl = Client.clientUrl;
-
-    @Autowired
-    UserDetailsServiceImpl userDetailsService;
 
 
 
