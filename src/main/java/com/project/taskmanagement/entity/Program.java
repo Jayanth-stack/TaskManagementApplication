@@ -1,21 +1,22 @@
 package com.project.taskmanagement.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Document(collection = "program")
+@Document(collection = "Program")
 public class Program {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
     private long id;
+
+    @Field("name")
     private String name;
-    @Column(length = 65450, columnDefinition = "text")
+    @Field("Description")
     private String description;
 
     @DBRef

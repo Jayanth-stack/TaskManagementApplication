@@ -1,21 +1,19 @@
 package com.project.taskmanagement.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import org.hibernate.annotations.NaturalId;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+import org.springframework.data.annotation.Id;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+@Document (collection = "Role")
 public class Role {
 
     @Id
     private long id;
 
-    @Enumerated(EnumType.STRING)
-    @NaturalId
-    @Column(length = 60)
+
+    @Field("Role_name")
     private RoleName name;
 
     public Role() {

@@ -1,13 +1,11 @@
 package com.project.taskmanagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
-@Document(collection = "invites")
+@Document(collection = "Invites")
 public class Invites {
 
     @Id

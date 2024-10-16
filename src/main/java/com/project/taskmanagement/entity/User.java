@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
 
-@Document(collection = "users")
+@Document(collection = "User")
 public class User {
 
     @Id
@@ -47,6 +47,9 @@ public class User {
         this.email = email;
         this.password = password;
 
+    }
+
+    public User(String username, String password, String email, String encode) {
     }
 
     public String getName() {
