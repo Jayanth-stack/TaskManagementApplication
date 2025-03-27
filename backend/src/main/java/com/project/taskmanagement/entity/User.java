@@ -1,70 +1,54 @@
 package com.project.taskmanagement.entity;
 
-
-
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.ArrayList;
 
-@Document(collection = "User")
+@Document(collection = "users")
 public class User {
-
     @Id
-    private long id;
+    private String id;
 
-    private String name;
-
-    @Field("username")
+    @NotBlank
+    @Size(max = 20)
+    @Indexed(unique = true)
     private String username;
 
-
-    @NotNull
-    @Field("email")
+    @NotBlank
+    @Size(max = 50)
+    @Email
+    @Indexed(unique = true)
     private String email;
 
-    @NotNull
-    @Field("password")
+    @NotBlank
+    @Size(max = 120)
     private String password;
 
     @DBRef
     private Set<Role> roles = new HashSet<>();
 
-    @DBRef
-    private List<Program> program = new ArrayList<>();
-
     public User() {
-
     }
-    public User(String username, String email, String password) {
+
+    public User(String username, String password, String email, String encodedPassword) {
         this.username = username;
+        this.password = encodedPassword;
         this.email = email;
-        this.password = password;
-
     }
 
-    public User(String username, String password, String email, String encode) {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -98,13 +82,5 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
-    }
-
-    public List<Program> getProgram() {
-        return program;
-    }
-
-    public void setProgram(List<Program> program) {
-        this.program = program;
     }
 }

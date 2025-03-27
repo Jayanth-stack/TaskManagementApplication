@@ -1,33 +1,29 @@
 package com.project.taskmanagement.entity;
 
-
 import org.springframework.data.annotation.Id;
-
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.index.Indexed;
 
-@Document (collection = "Role")
+@Document(collection = "roles")
 public class Role {
-
     @Id
-    private long id;
+    private String id;
 
-
-    @Field("Role_name")
+    @Indexed(unique = true)
     private RoleName name;
 
     public Role() {
-
     }
+
     public Role(RoleName name) {
         this.name = name;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
