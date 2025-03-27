@@ -1,26 +1,26 @@
 package com.project.taskmanagement.entity;
 
-
-
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.processing.Generated;
 import java.time.LocalDateTime;
 
-@Document(collection = "task")
+@Document(collection = "tasks")
 @Component
 public class Task {
 
     @Id
-    private long id;
-    private long program;
+    private String id;
+    
+    private String programId;
     private String name;
-    private long createdBy;
+    private String createdById;
 
     @CreatedDate
     private LocalDateTime createdDate;
@@ -31,29 +31,28 @@ public class Task {
     @CreatedDate
     private LocalDateTime deadline;
 
-    private long modifiedBy;
+    private String modifiedById;
 
     @LastModifiedDate
     private LocalDateTime modifiedDate;
+    
     private String status;
-
-    @Field
     private String description;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public long getProgram() {
-        return program;
+    public String getProgramId() {
+        return programId;
     }
 
-    public void setProgram(long program) {
-        this.program = program;
+    public void setProgramId(String programId) {
+        this.programId = programId;
     }
 
     public String getName() {
@@ -64,12 +63,12 @@ public class Task {
         this.name = name;
     }
 
-    public long getCreatedBy() {
-        return createdBy;
+    public String getCreatedById() {
+        return createdById;
     }
 
-    public void setCreatedBy(long createdBy) {
-        this.createdBy = createdBy;
+    public void setCreatedById(String createdById) {
+        this.createdById = createdById;
     }
 
     public LocalDateTime getCreatedDate() {
@@ -88,20 +87,20 @@ public class Task {
         this.startTime = startTime;
     }
 
-    public long getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(long modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
-
     public LocalDateTime getDeadline() {
         return deadline;
     }
 
     public void setDeadline(LocalDateTime deadline) {
         this.deadline = deadline;
+    }
+
+    public String getModifiedById() {
+        return modifiedById;
+    }
+
+    public void setModifiedById(String modifiedById) {
+        this.modifiedById = modifiedById;
     }
 
     public LocalDateTime getModifiedDate() {

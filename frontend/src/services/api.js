@@ -1,8 +1,18 @@
 import axios from 'axios';
 
+// Determine base URL based on environment
+const getBaseURL = () => {
+  // When running in Docker, use the '/api' prefix that Nginx will proxy
+  if (process.env.REACT_APP_ENV === 'docker') {
+    return '/api';
+  }
+  // In development, use the proxy to localhost:8080
+  return 'http://localhost:8080';
+};
+
 // Create an Axios instance with default configs
 const api = axios.create({
-  baseURL: 'http://localhost:8080', // Backend API URL
+  baseURL: getBaseURL(),
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'

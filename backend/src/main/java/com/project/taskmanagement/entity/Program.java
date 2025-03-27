@@ -1,34 +1,40 @@
 package com.project.taskmanagement.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.stereotype.Component;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-@Document(collection = "Program")
+@Document(collection = "programs")
 public class Program {
     @Id
-    private long id;
-
-    @Field("name")
+    private String id;
+    
     private String name;
-    @Field("Description")
     private String description;
-
+    private String code;
+    private String adminId;
+    
     @DBRef
-    private List<User> users;
+    private Set<User> users = new HashSet<>();
 
-    private long admin;
+    public Program() {
+    }
 
-    public long getId() {
+    public Program(String name, String description, String code, String adminId) {
+        this.name = name;
+        this.description = description;
+        this.code = code;
+        this.adminId = adminId;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -48,19 +54,27 @@ public class Program {
         this.description = description;
     }
 
-    public List<User> getUsers() {
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(String adminId) {
+        this.adminId = adminId;
+    }
+
+    public Set<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
-    }
-
-    public long getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(long admin) {
-        this.admin = admin;
     }
 }
