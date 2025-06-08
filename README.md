@@ -229,18 +229,5 @@ The project includes:
 4. Push to the branch
 5. Create a Pull Request
 
-## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 👥 Authors
-
-- Your Name - Initial work
-
-## 🙏 Acknowledgments
-
-- Spring Boot team
-- React team
-- MongoDB team
-- Docker team
-- Kubernetes team 
